@@ -1,27 +1,5 @@
-//==================================================
-// 定数・変数の定義
-//==================================================
-// 問題と答えのデータ（配列オブジェクト形式）
-const quizzes = [
-  {
-    question: "私の兄は毎日犬の散歩をします。",
-    answer: "My brother walks his dog every day."
-  },
-  {
-    question: "彼女はその時、図書館で本を読んでいました。",
-    answer: "She was reading a book in the library at that time."
-  },
-  {
-    question: "このケーキはなんて美味しいのでしょう！",
-    answer: "How delicious this cake is!"
-  },
-  {
-    question: "彼はサッカーをするために公園へ行きました。",
-    answer: "He went to the park to play soccer."
-  }
-];
-
 // 現在の問題番号を管理する変数
+let quizzes = [];
 let currentQuizIndex = 0;
 
 // HTMLの要素を取得
@@ -33,6 +11,30 @@ const resultMessageElement = document.getElementById('result-message');
 const modelAnswerElement = document.getElementById('model-answer');
 const nextButtonElement = document.getElementById('next-button');
 
+//==================================================
+// メイン処理（非同期）
+//==================================================
+/**
+ * 非同期でクイズデータを取得し、アプリを初期化する
+ */
+const main = async () => {
+  try {
+    // quiz.jsonからデータを取得
+    const response = await fetch('quiz.json');
+    quizzes = await response.json();
+
+    // クイズの配列をシャッフル
+    shuffleArray(quizzes); 
+    // 最初のクイズを表示
+    showQuiz();
+  } catch (error) {
+    console.error('クイズデータの読み込みに失敗しました:', error);
+    questionTextElement.textContent = "クイズの読み込みに失敗しました。";
+  }
+};
+
+// メイン処理を実行
+main();
 
 //==================================================
 // 関数の定義
@@ -47,6 +49,19 @@ const showQuiz = () => {
   resultAreaElement.classList.add('hidden');
   // 回答入力欄を空にする
   userAnswerElement.value = "";
+}
+
+/**
+ * 配列をシャッフルする関数
+ * @param {Array} array シャッフルしたい配列
+ * @returns {Array} シャッフルされた配列
+ */
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; 
+  }
+  return array;
 }
 
 
@@ -88,9 +103,5 @@ nextButtonElement.addEventListener('click', () => {
   }
 });
 
-
-//==================================================
-// 画面読み込み時の処理
-//==================================================
-// 最初のクイズを表示
+shuffleArray(quizzes); 
 showQuiz();
