@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瞬間英作文トレーニング</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>瞬間英作文トレーニング</h1>
+    </header>
+
+    <main>
+        <section id="question-area">
+            <h2>お題</h2>
+            <p id="question-text">ここに日本語の問題文が表示されます。</p>
+        </section>
+
+        <section id="answer-area">
+            <input type="text" id="user-answer" placeholder="ここに英文を入力">
+            <button id="check-button">こたえあわせ</button>
+        </section>
+
+        <section id="result-area" class="hidden">
+            <h3 id="result-message"></h3>
+            <p>模範解答：<span id="model-answer"></span></p>
+            <button id="next-button">次の問題へ</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 (相馬晴仁)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
