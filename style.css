@@ -1,0 +1,77 @@
+/* 全体のスタイル */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Original Yu Gothic", "Yu Gothic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header, footer {
+    text-align: center;
+}
+
+/* 各セクションの余白 */
+section {
+    margin-bottom: 20px;
+}
+
+/* テキスト入力欄 */
+#user-answer {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* paddingを含めてwidth 100%にするため */
+}
+
+/* ボタン */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 結果表示エリア */
+#result-area {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* .hiddenクラスが付いている要素を非表示にする */
+.hidden {
+    display: none;
+}
+
+/* 結果メッセージのスタイル */
+#result-message.correct {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#result-message.incorrect {
+    color: #dc3545;
+    font-weight: bold;
+}
