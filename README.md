@@ -1,3 +1,5 @@
+瞬間英作文トレーニング用のWebアプリ(開発中)
+
 #使用技術
 -   HTML5 / CSS3
 -   JavaScript (ES6+)
